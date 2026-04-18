@@ -16,30 +16,30 @@ import { portfolioData } from "@/lib/portfolio-data";
 
 const servicePanels = [
   {
-    title: "Clean & scalable code",
+    title: "Full-stack web development",
     copy:
-      "Build systems that stay maintainable as products grow. Structure, reusability, and performance are handled from the start.",
+      "Build and maintain production-ready applications with React.js and Node.js, from planning and architecture to deployment.",
     number: "01",
     tone: "bg-[#8eb28e] text-[#131313]",
   },
   {
-    title: "Modern UI & UX",
+    title: "API & auth systems",
     copy:
-      "Interfaces are designed with clarity, spacing, and motion in mind so the product feels sharp on every screen.",
+      "Develop REST APIs with MongoDB integration, authentication, role-based access control, and reliable backend validation.",
     number: "02",
     tone: "bg-[#f2f0ec] text-[#131313]",
   },
   {
-    title: "SEO & best practices",
+    title: "Performance optimization",
     copy:
-      "Semantic structure, accessibility, optimized delivery, and production discipline are built into the process.",
+      "Improve load times, app reliability, and UX through reusable architecture, optimization, and clean implementation.",
     number: "03",
     tone: "bg-[#8eb28e] text-[#131313]",
   },
   {
-    title: "Reliable delivery",
+    title: "Cross-team execution",
     copy:
-      "From concept to launch, the focus stays on clean execution, stable releases, and a site that actually works.",
+      "Collaborate with product, design, and business teams to ship practical features quickly and keep delivery quality high.",
     number: "04",
     tone: "bg-[#f2f0ec] text-[#131313]",
   },
@@ -354,9 +354,9 @@ export default function HomePage() {
               data-hero-meta
               className="mb-8 grid gap-3 border-t border-white/20 pt-3 text-[0.62rem] uppercase tracking-[0.18em] text-zinc-300 md:grid-cols-3"
             >
-              <span>50+ projects completed</span>
-              <span className="md:text-center">2+ years of experience</span>
-              <span className="md:text-right">Full-stack product developer</span>
+              <span>7+ production projects</span>
+              <span className="md:text-center">1+ years of experience</span>
+              <span className="md:text-right">React, Node.js, Django</span>
             </div>
           </HeroReveal>
 
@@ -368,17 +368,17 @@ export default function HomePage() {
               >
                 <span className="block overflow-hidden">
                   <span data-word className="block">
-                    I build modern
+                    I build scalable
                   </span>
                 </span>
                 <span className="block overflow-hidden text-[#8eb28e]">
                   <span data-word className="block">
-                    websites
+                    full-stack
                   </span>
                 </span>
                 <span className="block overflow-hidden">
                   <span data-word className="block">
-                    that work
+                    web products
                   </span>
                 </span>
               </h1>
@@ -390,14 +390,14 @@ export default function HomePage() {
                 className="max-w-sm pb-4 text-sm leading-6 text-zinc-300 lg:justify-self-end"
               >
                 <p className="mb-3 text-[0.68rem] uppercase tracking-[0.28em] text-white/60">
-                  About
+                  Profile
                 </p>
                 <p>{portfolioData.intro}</p>
                 <a
                   href="#services"
                   className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-white"
                 >
-                  Learn more <ArrowUpRight className="h-3.5 w-3.5" />
+                  View strengths <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </HeroReveal>
@@ -438,7 +438,7 @@ export default function HomePage() {
                     href="#contact"
                     className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-black"
                   >
-                    View approach <ArrowUpRight className="h-3.5 w-3.5" />
+                    Contact now <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
@@ -475,22 +475,22 @@ export default function HomePage() {
               className="text-center font-display uppercase leading-[0.94] tracking-[-0.01em] text-[#131313]"
             >
               <p data-transition-title className="text-[clamp(2.5rem,6.7vw,6.2rem)]">
-                What you get
+                What I build
               </p>
               <p
                 data-transition-title
                 className="text-[clamp(2.5rem,6.7vw,6.2rem)]"
               >
-                When clarity
+                For teams
               </p>
               <p data-transition-title className="text-[clamp(2.5rem,6.7vw,6.2rem)]">
-                Meets
+                That need
               </p>
               <p
                 data-transition-title
                 className="font-['Times_New_Roman'] text-[clamp(2.6rem,6.2vw,6rem)] italic normal-case tracking-[0.02em]"
               >
-                Performance
+                Reliable delivery
               </p>
             </div>
           </div>
@@ -504,8 +504,9 @@ export default function HomePage() {
                 01
               </p>
               <p>
-                I work closely with brands to craft thoughtful, scalable design
-                systems that translate strategy into refined digital experiences.
+                End-to-end development across frontend, backend, and databases
+                with production discipline, secure architecture, and measurable
+                performance gains.
               </p>
             </div>
           </div>
@@ -516,17 +517,17 @@ export default function HomePage() {
         <HeroReveal>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-display text-[clamp(3.2rem,9vw,6.4rem)] uppercase leading-[0.9] tracking-[-0.02em]">
-              Ready to build something that actually works?
+              Open to full-stack roles and freelance builds
             </h2>
             <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-black/70">
-              Clear design, solid engineering, and focused strategy working
-              together as one system.
+              Available for product teams that need React.js, Node.js, Django,
+              API development, and dependable feature delivery.
             </p>
             <a
               href={portfolioData.socials.email}
               className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e9e7e3] px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-black shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
             >
-              Let&apos;s talk
+              Contact me
             </a>
           </div>
         </HeroReveal>
@@ -542,6 +543,7 @@ export default function HomePage() {
               <a href={portfolioData.socials.email} className="block hover:text-white">
                 {portfolioData.socials.email.replace("mailto:", "")}
               </a>
+              <p>{portfolioData.phone}</p>
               <p>{portfolioData.location}</p>
             </div>
             <div className="space-y-3">
@@ -585,8 +587,9 @@ export default function HomePage() {
               </a>
             </div>
             <div className="space-y-3 md:text-right">
-              <p>Privacy Policy</p>
-              <p>©2026 All Rights Reserved</p>
+              <p>{portfolioData.education.degree}</p>
+              <p>GPA: {portfolioData.education.gpa}</p>
+              <p>Graduated: {portfolioData.education.graduation}</p>
             </div>
           </div>
         </HeroReveal>

@@ -4,6 +4,8 @@
 
 :root {
   color-scheme: dark;
+  --font-sans: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Anton", "Arial Black", "Impact", sans-serif;
   --bg: #11110f;
   --panel: #1a1a18;
   --line: rgba(255, 255, 255, 0.12);

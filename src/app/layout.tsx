@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import { Anton, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/smooth-scroll-provider";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const anton = Anton({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
-});
 
 export const metadata: Metadata = {
   title: "Srijon Karmakar | Developer Portfolio",
@@ -26,11 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${manrope.variable} ${anton.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning>
       <body className="bg-[#0f0f0d] text-white antialiased">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
