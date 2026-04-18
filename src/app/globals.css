@@ -1,26 +1,77 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --bg: #11110f;
+  --panel: #1a1a18;
+  --line: rgba(255, 255, 255, 0.12);
+  --sage: #8eb28e;
+  --soft: #f2f0ec;
+  --ink: #171717;
+  --blue: #7fa3c9;
+  --taupe: #a78978;
+  --pink: #ea5d9f;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
+  background: var(--bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: white;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(196, 181, 253, 0.35);
+  color: white;
+}
+
+.font-display {
+  font-family: var(--font-display), Impact, sans-serif;
+}
+
+.site-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 11.5rem 100%, 100% 11.5rem;
+}
+
+.site-grid-light {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 10.25rem 100%, 100% 10.25rem;
+}
+
+.contour-bg {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08), transparent 35%),
+    repeating-radial-gradient(
+      circle at 50% 40%,
+      rgba(255, 255, 255, 0.12) 0,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+  filter: opacity(0.48);
 }
