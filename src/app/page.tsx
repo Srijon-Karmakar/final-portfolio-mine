@@ -56,12 +56,15 @@ export default function HomePage() {
   const loaderLinesRef = useRef<HTMLDivElement | null>(null);
   const transitionSectionRef = useRef<HTMLElement | null>(null);
   const transitionStageRef = useRef<HTMLDivElement | null>(null);
-  const transitionCrossXRef = useRef<HTMLDivElement | null>(null);
-  const transitionCrossYRef = useRef<HTMLDivElement | null>(null);
+  const transitionSloganRef = useRef<HTMLDivElement | null>(null);
+  const transitionClarityRef = useRef<HTMLSpanElement | null>(null);
+  const transitionPlusWrapRef = useRef<HTMLDivElement | null>(null);
+  const transitionPerformanceRef = useRef<HTMLSpanElement | null>(null);
   const transitionWhiteRef = useRef<HTMLDivElement | null>(null);
-  const transitionCenterBlockRef = useRef<HTMLDivElement | null>(null);
   const transitionTitleRef = useRef<HTMLDivElement | null>(null);
-  const transitionStripRef = useRef<HTMLDivElement | null>(null);
+  const transitionBeigeRef = useRef<HTMLDivElement | null>(null);
+  const transitionPinkRef = useRef<HTMLDivElement | null>(null);
+  const transitionBlueRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -177,112 +180,164 @@ export default function HomePage() {
       if (
         transitionSectionRef.current &&
         transitionStageRef.current &&
-        transitionCrossXRef.current &&
-        transitionCrossYRef.current &&
+        transitionSloganRef.current &&
+        transitionClarityRef.current &&
+        transitionPlusWrapRef.current &&
+        transitionPerformanceRef.current &&
         transitionWhiteRef.current &&
-        transitionCenterBlockRef.current &&
         transitionTitleRef.current &&
-        transitionStripRef.current &&
-        panelsRef.current
+        transitionBeigeRef.current &&
+        transitionPinkRef.current &&
+        transitionBlueRef.current
       ) {
-        const panelItems = Array.from(panelsRef.current.children);
         const titleParts = transitionTitleRef.current.querySelectorAll(
           "[data-transition-title]",
         );
 
-        gsap.set(transitionCrossXRef.current, {
-          scaleX: 0,
-          transformOrigin: "50% 50%",
-        });
-        gsap.set(transitionCrossYRef.current, {
-          scaleY: 0,
-          transformOrigin: "50% 50%",
-        });
-        gsap.set(transitionWhiteRef.current, { autoAlpha: 0 });
-        gsap.set(transitionCenterBlockRef.current, {
-          scale: 0.06,
+        gsap.set(transitionSloganRef.current, { autoAlpha: 1 });
+        gsap.set(transitionClarityRef.current, { xPercent: 0 });
+        gsap.set(transitionPerformanceRef.current, { xPercent: 0 });
+        gsap.set(transitionPlusWrapRef.current, {
+          scale: 1,
           autoAlpha: 1,
           transformOrigin: "50% 50%",
         });
-        gsap.set(titleParts, { autoAlpha: 0, y: 30 });
-        gsap.set(transitionStripRef.current, { yPercent: 50 });
+        gsap.set(transitionWhiteRef.current, { autoAlpha: 0 });
+        gsap.set(titleParts, { autoAlpha: 0, y: 64 });
+        gsap.set([transitionBeigeRef.current, transitionPinkRef.current, transitionBlueRef.current], {
+          yPercent: 110,
+          autoAlpha: 1,
+          pointerEvents: "none",
+        });
 
         const transitionTl = gsap.timeline({
           scrollTrigger: {
             trigger: transitionSectionRef.current,
             start: "top top",
-            end: "+=170%",
+            end: "+=320%",
             scrub: 1,
             pin: transitionStageRef.current,
+            anticipatePin: 1,
           },
         });
 
         transitionTl
           .to(
-            panelItems,
+            transitionSloganRef.current,
             {
-              yPercent: -100,
+              yPercent: -8,
+              scale: 1.03,
               ease: "none",
-              stagger: 0.04,
             },
             0,
           )
           .to(
-            transitionCrossXRef.current,
+            transitionPerformanceRef.current,
             {
-              scaleX: 1,
-              duration: 0.25,
-              ease: "power2.out",
+              xPercent: 62,
+              duration: 0.26,
+              ease: "power2.inOut",
             },
-            0.08,
+            0.14,
           )
           .to(
-            transitionCrossYRef.current,
+            transitionClarityRef.current,
             {
-              scaleY: 1,
-              duration: 0.25,
-              ease: "power2.out",
+              xPercent: -24,
+              duration: 0.24,
+              ease: "power2.inOut",
             },
-            0.12,
+            0.14,
+          )
+          .to(
+            transitionPlusWrapRef.current,
+            {
+              scale: 64,
+              duration: 0.42,
+              ease: "power2.inOut",
+            },
+            0.2,
           )
           .to(
             transitionWhiteRef.current,
             {
               autoAlpha: 1,
-              duration: 0.28,
+              duration: 0.06,
               ease: "none",
             },
-            0.34,
+            0.22,
           )
           .to(
-            transitionCenterBlockRef.current,
+            transitionSloganRef.current,
             {
-              scale: 9,
-              duration: 0.52,
-              ease: "power2.inOut",
+              autoAlpha: 0,
+              yPercent: -20,
+              duration: 0.08,
+              ease: "none",
             },
-            0.4,
+            0.24,
           )
           .to(
             titleParts,
             {
               autoAlpha: 1,
               y: 0,
-              duration: 0.3,
+              duration: 0.22,
               ease: "power2.out",
-              stagger: 0,
+              stagger: 0.02,
               overwrite: "auto",
             },
-            0.52,
+            0.48,
           )
           .to(
-            transitionStripRef.current,
+            titleParts,
+            {
+              autoAlpha: 0,
+              y: -36,
+              duration: 0.14,
+              ease: "power2.in",
+              stagger: 0.01,
+            },
+            0.66,
+          )
+          .to(
+            transitionBeigeRef.current,
             {
               yPercent: 0,
-              duration: 0.45,
-              ease: "power3.out",
+              pointerEvents: "auto",
+              duration: 0.24,
+              ease: "power2.out",
             },
-            0.56,
+            0.7,
+          )
+          .to(
+            transitionPinkRef.current,
+            {
+              yPercent: 0,
+              pointerEvents: "auto",
+              duration: 0.24,
+              ease: "power2.out",
+            },
+            0.9,
+          )
+          .to(
+            transitionBlueRef.current,
+            {
+              yPercent: 0,
+              pointerEvents: "auto",
+              duration: 0.24,
+              ease: "power2.out",
+            },
+            1.1,
+          )
+          .to(
+            transitionBlueRef.current,
+            {
+              yPercent: -108,
+              duration: 0.25,
+              ease: "power2.in",
+            },
+            1.38,
           );
       }
     }, rootRef);
@@ -447,73 +502,169 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section ref={transitionSectionRef} className="relative h-[220vh] bg-[#1b1b19]">
+      <section ref={transitionSectionRef} className="relative z-10 h-[260vh] bg-[#1b1b19]">
         <div ref={transitionStageRef} className="relative h-screen overflow-hidden">
           <div className="site-grid absolute inset-0 bg-[#1f2125]" />
 
           <div
-            ref={transitionCrossXRef}
-            className="absolute left-1/2 top-1/2 z-20 h-[30vh] w-[180vw] -translate-x-1/2 -translate-y-1/2 bg-[#ececec]"
-          />
-          <div
-            ref={transitionCrossYRef}
-            className="absolute left-1/2 top-1/2 z-20 h-[180vh] w-[30vw] -translate-x-1/2 -translate-y-1/2 bg-[#ececec]"
-          />
+            ref={transitionSloganRef}
+            className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center"
+          >
+            <div className="w-full overflow-visible px-4 sm:px-8 lg:px-10">
+              <div className="flex items-center justify-center gap-5 text-[#efefef] sm:gap-8 lg:gap-12">
+                <span
+                  ref={transitionClarityRef}
+                  className="font-display text-[clamp(3.7rem,11.8vw,14.5rem)] uppercase leading-[0.84] tracking-[-0.02em]"
+                >
+                  Clarity
+                </span>
+                <span
+                  ref={transitionPlusWrapRef}
+                  className="font-display text-[clamp(5rem,12vw,14.5rem)] leading-none"
+                >
+                  +
+                </span>
+                <span
+                  ref={transitionPerformanceRef}
+                  className="font-display text-[clamp(3.7rem,11.8vw,14.5rem)] uppercase leading-[0.84] tracking-[-0.02em]"
+                >
+                  Performance
+                </span>
+              </div>
+            </div>
+          </div>
 
           <div
             ref={transitionWhiteRef}
-            className="site-grid-light absolute inset-0 z-30 bg-[radial-gradient(circle_at_50%_40%,rgba(236,236,236,0.86),rgba(236,236,236,0.6)_45%,rgba(236,236,236,0.18)_100%)]"
-          />
-          <div
-            ref={transitionCenterBlockRef}
-            className="absolute left-1/2 top-1/2 z-[35] h-[22vmax] w-[22vmax] -translate-x-1/2 -translate-y-1/2 bg-[#efece7]"
+            className="absolute inset-0 z-30 bg-white"
           />
 
-          <div className="pointer-events-none absolute inset-x-0 top-[14%] z-50 flex justify-center">
+          <div className="pointer-events-none absolute inset-x-0 top-[15%] z-50 flex justify-center">
             <div
               ref={transitionTitleRef}
               className="text-center font-display uppercase leading-[0.94] tracking-[-0.01em] text-[#131313]"
             >
               <p data-transition-title className="text-[clamp(2.5rem,6.7vw,6.2rem)]">
-                What I build
+                What you get
               </p>
               <p
                 data-transition-title
                 className="text-[clamp(2.5rem,6.7vw,6.2rem)]"
               >
-                For teams
+                When clarity
               </p>
               <p data-transition-title className="text-[clamp(2.5rem,6.7vw,6.2rem)]">
-                That need
+                Meets
               </p>
               <p
                 data-transition-title
                 className="font-['Times_New_Roman'] text-[clamp(2.6rem,6.2vw,6rem)] italic normal-case tracking-[0.02em]"
               >
-                Reliable delivery
+                Performance
               </p>
             </div>
           </div>
 
           <div
-            ref={transitionStripRef}
-            className="absolute inset-x-[-2%] bottom-[-14%] z-40 rotate-[2deg] bg-[#b08f79] px-8 pb-20 pt-10 sm:px-10 lg:px-12"
+            ref={transitionBeigeRef}
+            className="absolute inset-0 z-[60] bg-[#b08f79] px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12"
           >
-            <div className="max-w-xl border-l border-white/50 pl-4 text-base leading-8 text-white/92">
-              <p className="mb-3 text-xs uppercase tracking-[0.25em] text-white/70">
-                01
-              </p>
-              <p>
-                End-to-end development across frontend, backend, and databases
-                with production discipline, secure architecture, and measurable
-                performance gains.
-              </p>
+            <div className="flex h-full flex-col justify-between">
+              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <div className="max-w-xl border-l border-white/50 pl-4 text-base leading-8 text-white/92">
+                  <p className="mb-3 text-xs uppercase tracking-[0.25em] text-white/70">
+                    01
+                  </p>
+                  <p>
+                    I build robust digital systems with clear structure, clean
+                    execution, and long-term maintainability so products stay
+                    fast, stable, and easy to evolve.
+                  </p>
+                </div>
+                <div className="hidden lg:block" />
+              </div>
+
+              <div className="grid items-end gap-6 lg:grid-cols-[1fr_auto]">
+                <p className="font-display text-[clamp(4rem,12vw,12rem)] uppercase leading-[0.84] tracking-[-0.02em] text-[#ececec]">
+                  Design
+                </p>
+                <div className="flex items-center justify-between border-t border-white/60 pt-4 text-sm text-white/90 lg:min-w-[17rem]">
+                  <span>Learn more</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            ref={transitionPinkRef}
+            className="absolute inset-0 z-[61] bg-[#d7659f] px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12"
+          >
+            <div className="flex h-full flex-col justify-between">
+              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <div className="max-w-xl border-l border-black/40 pl-4 text-base leading-8 text-black/80">
+                  <p className="mb-3 text-xs uppercase tracking-[0.25em] text-black/70">
+                    02
+                  </p>
+                  <p>
+                    Web systems built to move fast, test ideas, and measure
+                    real results. Full-stack execution across front-end,
+                    back-end, and databases.
+                  </p>
+                </div>
+                <div className="justify-self-end self-start border border-black/30 bg-black/20 px-4 py-3 text-sm text-black/90">
+                  visual proof frame
+                </div>
+              </div>
+
+              <div className="grid items-end gap-6 lg:grid-cols-[1fr_auto]">
+                <p className="font-display text-[clamp(4rem,12vw,12rem)] uppercase leading-[0.84] tracking-[-0.02em] text-black/85">
+                  Engineering
+                </p>
+                <div className="flex items-center justify-between border-t border-black/45 pt-4 text-sm text-black/85 lg:min-w-[17rem]">
+                  <span>Learn more</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            ref={transitionBlueRef}
+            className="absolute inset-0 z-[62] bg-[#6e95be] px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12"
+          >
+            <div className="flex h-full flex-col justify-between">
+              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <div className="max-w-xl border-l border-white/50 pl-4 text-base leading-8 text-white/92">
+                  <p className="mb-3 text-xs uppercase tracking-[0.25em] text-white/75">
+                    03
+                  </p>
+                  <p>
+                    Strategic thinking built on precision, efficiency, and
+                    technical depth so projects stay predictable and focused
+                    from first decision to final ship.
+                  </p>
+                </div>
+                <div className="justify-self-end self-start border border-white/40 bg-white/15 px-4 py-3 text-sm text-white">
+                  visual proof frame
+                </div>
+              </div>
+
+              <div className="grid items-end gap-6 lg:grid-cols-[1fr_auto]">
+                <p className="font-display text-[clamp(4rem,12vw,12rem)] uppercase leading-[0.84] tracking-[-0.02em] text-[#ececec]">
+                  Strategy
+                </p>
+                <div className="flex items-center justify-between border-t border-white/55 pt-4 text-sm text-white lg:min-w-[17rem]">
+                  <span>Learn more</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="site-grid-light bg-[#f4f2ed] px-4 py-24 text-[#161616] sm:px-6 lg:px-8 lg:py-32">
+      <section className="site-grid-light relative z-20 bg-[#f4f2ed] px-4 py-24 text-[#161616] sm:px-6 lg:px-8 lg:py-32">
         <HeroReveal>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-display text-[clamp(3.2rem,9vw,6.4rem)] uppercase leading-[0.9] tracking-[-0.02em]">
@@ -535,7 +686,7 @@ export default function HomePage() {
 
       <footer
         id="contact"
-        className="border-t border-white/10 bg-[#1a1a18] px-4 pb-10 pt-14 sm:px-6 lg:px-8"
+        className="relative z-20 border-t border-white/10 bg-[#1a1a18] px-4 pb-10 pt-14 sm:px-6 lg:px-8"
       >
         <HeroReveal>
           <div className="grid gap-10 border-b border-[#8eb28e]/70 pb-8 text-sm text-zinc-300 md:grid-cols-4">

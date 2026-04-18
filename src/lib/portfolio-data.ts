@@ -1,4 +1,4 @@
-﻿export const portfolioData = {
+export const portfolioData = {
   name: "Srijon Karmakar",
   role: "Full Stack Developer",
   location: "Kolkata, India",
